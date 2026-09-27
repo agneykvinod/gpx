@@ -1,43 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<meta name="theme-color" content="#05070a">
-<title>GPX Racing</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08090b"><title>GPX — MotoGP Career</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="game">
-  <div id="hud">
-    <div class="hudbox"><span>LAP</span><b id="lap">1 / 3</b></div>
-    <div class="hudbox"><span>TIME</span><b id="time">00:00.00</b></div>
-    <div class="hudbox"><span>SPEED</span><b id="speed">0</b><small> km/h</small></div>
-    <div class="hudbox"><span>LEAN</span><b id="lean">0°</b></div>
-  </div>
-  <div id="status">TOUCH STEERING • TILT MODE AVAILABLE</div>
-  <div id="controls">
-    <button id="brake" aria-label="Brake">BRAKE</button>
-    <button id="sensor" aria-label="Enable tilt">TILT</button>
-    <button id="throttle" aria-label="Throttle">THROTTLE</button>
-  </div>
-  <div id="menu" class="screen">
-    <div class="panel">
-      <div class="eyebrow">GPX RACING • PROTOTYPE 02</div>
-      <h1>GRAND PRIX<br><em>X</em></h1>
-      <p>High-speed motorcycle racing with lean physics, detailed track scenery and motion control.</p>
-      <button id="start">START RACE</button>
-      <div class="hint">Drag left/right to lean • Hold THROTTLE • Brake before heavy corners • TILT enables device motion</div>
-    </div>
-  </div>
-  <div id="crash" class="screen hidden">
-    <div class="panel"><div class="eyebrow">RACE INCIDENT</div><h2>CRASHED</h2><p id="crashText">You lost the rear grip.</p><button id="restart">RIDE AGAIN</button></div>
-  </div>
-  <div id="finish" class="screen hidden">
-    <div class="panel"><div class="eyebrow">CHEQUERED FLAG</div><h2>FINISH</h2><p id="finishText"></p><button id="finishRestart">NEW RACE</button></div>
-  </div>
-</div>
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"}}</script>
-<script type="module" src="game.js"></script>
-</body>
-</html>
+<div class="app">
+<header class="topbar"><div class="brand"><span class="brand-mark">GP</span><div><b>GPX</b><small>MOTOGP CAREER</small></div></div><div class="season-pill">SEASON <strong id="season">1</strong></div><button class="reset-btn" id="resetBtn" type="button">NEW CAREER</button></header>
+<main>
+<section id="careerSetup" class="screen"><div class="hero"><div class="eyebrow">RIDER CAREER SIMULATOR</div><h1>BUILD YOUR<br><em>LEGACY.</em></h1><p>Start as a rookie. Develop the machine. Win races. Earn the factory seat.</p></div>
+<div class="setup-grid"><div class="panel"><div class="panel-head"><span>01 / RIDER</span><span>CREATE</span></div>
+<label>Rider name<input id="riderName" maxlength="18" value="AGNEY"></label><label>Riding style<select id="styleSelect"><option value="balanced">Balanced</option><option value="aggressive">Aggressive</option><option value="smooth">Smooth</option></select></label>
+<div class="stat-row"><span>PACE</span><b>68</b></div><div class="bar"><i style="width:68%"></i></div><div class="stat-row"><span>RACECRAFT</span><b>65</b></div><div class="bar"><i style="width:65%"></i></div><div class="stat-row"><span>CONSISTENCY</span><b>67</b></div><div class="bar"><i style="width:67%"></i></div>
+<button class="primary" id="startCareer" type="button">START CAREER <span>→</span></button></div>
+<div class="panel intro-panel"><div class="panel-head"><span>CAREER LOOP</span><span>SIMULATION</span></div><div class="feature"><b>RACE</b><span>Qualify, choose pace and manage tyre strategy.</span></div><div class="feature"><b>DEVELOP</b><span>Spend team funds on engine, aero, chassis, electronics and reliability.</span></div><div class="feature"><b>CAREER</b><span>Build reputation, collect points and unlock the factory seat.</span></div><div class="feature"><b>LEGACY</b><span>12-round seasons, championship standings and progression.</span></div></div></div></section>
+<section id="game" class="screen hidden"><nav class="tabs"><button class="tab active" data-view="dashboard">GARAGE</button><button class="tab" data-view="race">RACE WEEKEND</button><button class="tab" data-view="development">BIKE DEVELOPMENT</button><button class="tab" data-view="standings">CHAMPIONSHIP</button></nav>
+<div id="dashboard" class="view"><div class="dash-head"><div><div class="eyebrow">CAREER DASHBOARD</div><h2 id="welcome">WELCOME, RIDER</h2><p id="teamLine">SATELLITE TEAM · MOTOGP</p></div><div class="next-race"><small>NEXT ROUND</small><b id="nextCircuit">QATAR</b><span id="roundText">ROUND 1 / 12</span></div></div>
+<div class="metrics"><article><small>CHAMPIONSHIP</small><strong id="points">0</strong><span>POINTS</span></article><article><small>REPUTATION</small><strong id="rep">62</strong><span>/ 100</span></article><article><small>BIKE RATING</small><strong id="bikeRating">71</strong><span>/ 100</span></article><article><small>TEAM FUNDS</small><strong id="funds">€8.0M</strong><span>AVAILABLE</span></article></div>
+<div class="dashboard-grid"><div class="panel spotlight"><div class="panel-head"><span>RIDER PROFILE</span><span id="rank">ROOKIE</span></div><div class="rider-card"><div class="helmet">#<span id="number">27</span></div><div><h3 id="profileName">AGNEY</h3><p id="profileStyle">BALANCED RIDER</p></div></div><div class="mini-stats"><span><b id="pace">68</b> PACE</span><span><b id="craft">65</b> RACECRAFT</span><span><b id="consistency">67</b> CONSISTENCY</span></div></div><div class="panel event-panel"><div class="panel-head"><span>CAREER FEED</span><span>LIVE</span></div><div id="feed"><div class="feed-item"><b>WELCOME</b><span>Your rookie contract is signed. The garage is yours.</span></div></div></div></div></div>
+<div id="race" class="view hidden"><div class="section-title"><div><div class="eyebrow">ROUND <span id="raceRound">01</span> / 12</div><h2 id="raceCircuit">QATAR GP</h2></div><div class="weather">● 24°C / DRY</div></div><div class="race-grid"><div class="panel race-control"><div class="panel-head"><span>RACE CONTROL</span><span id="raceStatus">READY</span></div><div class="lap-display"><small>PROJECTED GRID</small><strong id="gridPos">P12</strong><span id="paceText">GOOD PACE</span></div><div class="choices"><button class="choice selected" data-choice="push" type="button"><b>PUSH</b><span>Maximum attack · higher tyre wear</span></button><button class="choice" data-choice="balanced" type="button"><b>BALANCED</b><span>Protect tyres · steady lap time</span></button><button class="choice" data-choice="conserve" type="button"><b>CONSERVE</b><span>Save tyres · lower early pace</span></button></div><button class="primary" id="runRace" type="button">SIMULATE RACE <span>→</span></button></div><div class="panel circuit-panel"><div class="panel-head"><span>CIRCUIT DATA</span><span id="circuitNo">LUSAIL</span></div><div class="track"><svg viewBox="0 0 500 300" aria-label="Stylized circuit map"><path d="M80 190 C45 145 75 65 160 70 C230 74 220 20 300 42 C385 65 435 90 410 160 C385 235 295 235 250 195 C205 155 145 250 80 190Z" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/><circle cx="250" cy="195" r="8"/></svg></div><div class="circuit-stats"><span><b>5.4</b> KM</span><span><b>16</b> TURNS</span><span><b>20</b> LAPS</span></div></div></div><div id="raceResult" class="panel result hidden"></div></div>
+<div id="development" class="view hidden"><div class="section-title"><div><div class="eyebrow">ENGINEERING DEPARTMENT</div><h2>DEVELOP THE MACHINE</h2></div><div class="fund-chip">€<span id="devFunds">8.0</span>M</div></div><div class="dev-grid" id="devGrid"></div><div class="panel dev-footer"><span>UPGRADES COST €1.0M AND COMPLETE INSTANTLY IN THIS PROTOTYPE.</span><b id="totalRating">BIKE RATING 71</b></div></div>
+<div id="standings" class="view hidden"><div class="section-title"><div><div class="eyebrow">CHAMPIONSHIP</div><h2>RIDERS' STANDINGS</h2></div><div class="fund-chip">ROUND <span id="standingRound">1</span></div></div><div class="panel table-panel"><div class="table-row table-head"><span>#</span><span>RIDER</span><span>TEAM</span><span>PTS</span></div><div id="standingsRows"></div></div></div>
+</section></main></div><script src="script.js"></script></body></html>
