@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#07090d">
+<title>GPX Racing</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game">
+  <div id="hud">
+    <div class="hudbox"><span>LAP</span><b id="lap">1 / 3</b></div>
+    <div class="hudbox"><span>TIME</span><b id="time">00:00.00</b></div>
+    <div class="hudbox"><span>SPEED</span><b id="speed">0</b><small> km/h</small></div>
+    <div class="hudbox"><span>LEAN</span><b id="lean">0°</b></div>
+  </div>
+  <div id="status">TOUCH STEERING • TILT MODE AVAILABLE</div>
+  <div id="controls">
+    <button id="brake" aria-label="Brake">BRAKE</button>
+    <button id="sensor" aria-label="Enable tilt">TILT</button>
+    <button id="throttle" aria-label="Throttle">THROTTLE</button>
+  </div>
+  <div id="menu" class="screen">
+    <div class="panel">
+      <div class="eyebrow">GPX / PROTOTYPE 01</div>
+      <h1>GRAND PRIX<br><em>X</em></h1>
+      <p>Lean into the corner. Protect the tyres. Find the racing line.</p>
+      <button id="start">START RACE</button>
+      <div class="hint">Drag left/right to steer • Hold THROTTLE • TILT enables device motion</div>
+    </div>
+  </div>
+  <div id="crash" class="screen hidden">
+    <div class="panel"><div class="eyebrow">RACE INCIDENT</div><h2>CRASHED</h2><p id="crashText">Too much lean for the available grip.</p><button id="restart">RIDE AGAIN</button></div>
+  </div>
+  <div id="finish" class="screen hidden">
+    <div class="panel"><div class="eyebrow">CHEQUERED FLAG</div><h2>FINISH</h2><p id="finishText"></p><button id="finishRestart">NEW RACE</button></div>
+  </div>
+</div>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"}}</script>
+<script type="module" src="game.js"></script>
+</body>
+</html>
