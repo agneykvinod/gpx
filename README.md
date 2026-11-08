@@ -24,3 +24,10 @@ A lightweight browser-based 3D motorcycle racing prototype built with Three.js a
 
 ## Run
 Enable GitHub Pages for the repository and open the generated Pages URL over HTTPS. Device motion permissions generally require a secure context.
+
+
+## CASEFILE INDIA
+
+A separate static Indian legal case research archive is available in [`casefile-india/`](casefile-india/). It includes searchable case profiles, legal provisions, procedural posture, decisions, and links to official court resources. The existing GPX Racing prototype remains at the repository root.
+
+To publish the archive, enable GitHub Pages for this repository (Settings → Pages) using the `main` branch and `/ (root)` as the source. Once published, open `https://agneykvinod.github.io/gpx/casefile-india/`.
